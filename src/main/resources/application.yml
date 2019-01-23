@@ -1,0 +1,46 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: "dev"
+
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    .: ERROR
+    org.springframework: INFO
+    com.schibsted: INFO
+kafka:
+  bootstrapAddress: 192.168.1.58
+
+---
+spring:
+  profiles: test
+server:
+  port: 8080
+  servlet:
+    context-path: /v1
+logging:
+  level:
+    .: ERROR
+    org.springframework: INFO
+    com.schibsted: INFO
+kafka:
+  bootstrapAddress: 192.168.1.58
+
+---
+spring:
+  profiles: prod
+server:
+  port: 8080
+  servlet:
+    context-path: /v2
+logging:
+  level:
+    .: ERROR
+    org.springframework: INFO
+    com.schibsted: INFO
+kafka:
+  bootstrapAddress: 192.168.1.58
