@@ -1,13 +1,16 @@
 ![kafka](./_media/kafka-logo.png)
 
 # Kafka Message System PoC
+Apache Kafka is a distributed and fault-tolerant stream processing system.
 ![kafka](./_media/kafka-architecture.png)
 
 Kafka Ecosystem:
 - **_brokers_**: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
 Receive and retrieve the messages to the clients: producer and consumer. Many brokers conform a cluster. 
 Brokers are stateless, they don't know/care of the producer/consumer tracking.  
+The idea behind the brokers is the same that the akka actors system.
 - **_topics_**: are the buckets where the messages are going to the collected.
+- **_partitions_**: the brokers handle partitions.
 - **_producer_**: send messages to the message system
 - **_consumer_**: pull the messages from the message system
 - **_zookeeper_** coordinating system: allows coordinate all the broker nodes. 
@@ -146,3 +149,7 @@ docker rmi PID
 ``` 
 
 Once you have the dockerized app is really easy bring it to the cloud. You look for a cloud provider to deploy it and host it.
+
+### References
+- https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm
+- https://medium.com/@itseranga/kafka-and-zookeeper-with-docker-65cff2c2c34f
