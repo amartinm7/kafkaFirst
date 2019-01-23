@@ -4,13 +4,13 @@
 ![kafka](./_media/kafka-architecture.png)
 
 Kafka Ecosystem:
-- brokers: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
+- **_brokers_**: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
 Receive and retrieve the messages to the clients: producer and consumer. Many brokers conform a cluster. 
 Brokers are stateless, they don't know/care of the producer/consumer tracking.  
-- topics: are the buckets where the messages are going to the collected.
-- producer: send messages to the message system
-- consumer: pull the messages from the message system
-- zookeeper coordinating system: allows coordinate all the broker nodes. 
+- **_topics_**: are the buckets where the messages are going to the collected.
+- **_producer_**: send messages to the message system
+- **_consumer_**: pull the messages from the message system
+- **_zookeeper_** coordinating system: allows coordinate all the broker nodes. 
 Register the nodes and do the status tracking of them.
 
 In order to create all the pieces of the puzzle, we can use the docker images already created in the docker repo.
