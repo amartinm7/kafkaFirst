@@ -1,7 +1,7 @@
 ![kafka](./_media/kafka-logo.png)
 
 # Kafka PoC
-
+![kafka](./_media/kafka-architecture.png)
 ### Obtain the ip of the localhost
 ```bash
 ifconfig
