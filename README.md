@@ -1,7 +1,35 @@
 ![kafka](./_media/kafka-logo.png)
 
-# Kafka PoC
+# Kafka Message System PoC
 ![kafka](./_media/kafka-architecture.png)
+
+Kafka Ecosystem:
+- brokers: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
+Receive and retrieve the messages to the clients: producer and consumer. Many brokers conform a cluster. 
+Brokers are stateless, they don't know/care of the producer/consumer tracking.  
+- topics: are the buckets where the messages are going to the collected.
+- producer: send messages to the message system
+- consumer: pull the messages from the message system
+- zookeeper coordinating system: allows coordinate all the broker nodes. 
+Register the nodes and do the status tracking of them.
+
+In order to create all the pieces of the puzzle, we can use the docker images already created in the docker repo.
+So we are going to run the kafka docker image and the zookeeper image too.
+To do we are going to follow the next steps.
+
+workflow steps:
+- run the zookeeper image
+- run the kafka image
+- create a broker or several
+- create a topic and assign it to a broker or several brokers
+- create a producer and write some messages to the topic using the prompt. click enter to send it.
+- create a consumer and read some messages to the topic using the prompt.
+
+you can host to scale and coordinate the kafka cluster and the zookeeper using kubernates. 
+Lets say that kubernates is like a marathon/mesos tool for docker hosting.
+You have to fill some yml to deploy the docker images there.
+## Hands on
+
 ### Obtain the ip of the localhost
 ```bash
 ifconfig
