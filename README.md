@@ -9,7 +9,7 @@ Kafka Ecosystem:
 Receive and retrieve the messages to the clients: producer and consumer. Many brokers conform a cluster. 
 Brokers are stateless, they don't know/care of the producer/consumer tracking.  
 The idea behind the brokers is the same that the akka actors system.
-- **_topics_**: are the buckets where the messages are going to the collected.
+- **_topics_**: are the buckets where the messages are going to be collected.
 - **_partitions_**: the brokers handle partitions.
 - **_producer_**: send messages to the message system
 - **_consumer_**: pull the messages from the message system
@@ -31,7 +31,15 @@ workflow steps:
 you can host to scale and coordinate the kafka cluster and the zookeeper using kubernates. 
 Lets say that kubernates is like a marathon/mesos tool for docker hosting.
 You have to fill some yml to deploy the docker images there.
-## Hands on
+
+## Spring + Kafka integration
+Everything is integrated out the box. 
+The only thing that you have to do is create a producer/consumer using the spring templates for this thing. 
+For testing is really easy, use the @EmbeddedKafka annotation in the test class and Springboot will start everything 
+what you need. That is: a zookeeper instance and a kafka instance. The brokers are generated automatically.
+
+
+## Kafka + Zookeeper dockerized, Hands on!
 
 ### Obtain the ip of the localhost
 ```bash
