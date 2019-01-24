@@ -4,6 +4,13 @@
 Apache Kafka is a distributed and fault-tolerant stream processing system.
 ![kafka](./_media/kafka-architecture.png)
 
+The PoC or spike is intended to:
+- create a topic
+- create a publisher to send a 'Message'
+- create a subscriber to listen/receive a 'Message'
+
+There are written some tests to probe that everything is working as it must.  
+
 Kafka Ecosystem:
 - **_brokers_**: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
 Receive and retrieve the messages to the clients: producer and consumer. Many brokers conform a cluster. 
@@ -160,6 +167,7 @@ docker rmi PID
 Once you have the dockerized app is really easy bring it to the cloud. You look for a cloud provider to deploy it and host it.
 
 ### References
+- https://codenotfound.com/spring-kafka-boot-example.html
 - https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm
 - https://medium.com/@itseranga/kafka-and-zookeeper-with-docker-65cff2c2c34f
 
