@@ -34,10 +34,9 @@ You have to fill some yml to deploy the docker images there.
 
 ## Spring + Kafka integration
 Everything is integrated out the box. 
-The only thing that you have to do is create a producer/consumer using the spring templates for this thing. 
-For testing is really easy, use the @EmbeddedKafka annotation in the test class and Springboot will start everything 
-what you need. That is: a zookeeper instance and a kafka instance. The brokers are generated automatically.
-
+The only thing that you have to do is to create a producer/consumer client, using the spring templates provided for this thing. 
+For testing is really easy, use the @EmbeddedKafka annotation in the test classes and Springboot will start everything 
+what you need. That is: a zookeeper instance and a kafka instance. The kafka brokers are generated automatically.
 
 ## Kafka + Zookeeper dockerized, Hands on!
 
@@ -85,6 +84,7 @@ ches/kafka kafka-console-producer.sh \
 --topic senz \
 --broker-list 192.168.1.58:9092
 ```
+Write as many messages you wish in the console
 
 ### Create consumer
 ```bash
@@ -94,6 +94,7 @@ ches/kafka kafka-console-consumer.sh \
 --from-beginning \
 --zookeeper 192.168.1.58:2181
 ```
+You will receive the message in the console
 
 ### Go inside Zookeeper container
 ```bash
