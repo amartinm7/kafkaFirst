@@ -153,3 +153,8 @@ Once you have the dockerized app is really easy bring it to the cloud. You look 
 ### References
 - https://www.tutorialspoint.com/apache_kafka/apache_kafka_introduction.htm
 - https://medium.com/@itseranga/kafka-and-zookeeper-with-docker-65cff2c2c34f
+
+### creating spring project from scratch
+```bash
+spring init --build gradle --name=project-name --dependencies=web,data-jpa,mysql,devtools,thymeleaf --package-name=com.amm.artifact projectName
+```
