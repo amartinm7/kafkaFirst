@@ -20,17 +20,18 @@ public class ProducerService {
     @Value(value = "${kafka.topic.name}")
     private String topicName;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, Message> kafkaTemplate;
 
-    public ProducerService(@Autowired KafkaTemplate<String, String> kafkaTemplate){
+    public ProducerService(
+            @Autowired KafkaTemplate<String, Message> kafkaTemplate){
         this.kafkaTemplate = kafkaTemplate;
     }
 
     public void sendMessage(Message message){
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName, message.toString());
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+        ListenableFuture<SendResult<String, Message>> future = kafkaTemplate.send(topicName, message);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, Message>>() {
             @Override
-            public void onSuccess(@NonNull SendResult<String, String> result) {
+            public void onSuccess(@NonNull SendResult<String, Message> result) {
                 logger.info("Sent message=[" + message +
                         "] with offset=[" + result.getRecordMetadata().offset() + "]");
             }
