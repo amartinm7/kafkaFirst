@@ -24,7 +24,6 @@ public class ConsumerController {
 
     @GetMapping("/consumer")
     public ResponseEntity<HttpStatus> index() {
-        // Message message = new Message(200, "Hello World");
         logger.info(">>> {} ", consumerService.getMessages().toString());
         return new ResponseEntity<>(HttpStatus.OK);
     }
