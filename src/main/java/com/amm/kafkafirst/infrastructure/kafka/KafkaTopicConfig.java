@@ -1,6 +1,5 @@
 package com.amm.kafkafirst.infrastructure.kafka;
 
-import com.amm.kafkafirst.infrastructure.kafka.consumer.KafkaConsumerConfig;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
