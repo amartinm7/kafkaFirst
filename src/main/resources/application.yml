@@ -3,6 +3,12 @@ server:
 spring:
   profiles:
     active: "dev"
+kafka:
+  bootstrap-servers: localhost:9092
+  topic:
+    name: myTopic.t
+  group:
+    id: myGroup
 
 ---
 spring:
@@ -12,8 +18,6 @@ logging:
     .: ERROR
     org.springframework: INFO
     com.schibsted: INFO
-kafka:
-  bootstrapAddress: 192.168.1.58
 
 ---
 spring:
@@ -27,8 +31,6 @@ logging:
     .: ERROR
     org.springframework: INFO
     com.schibsted: INFO
-kafka:
-  bootstrapAddress: 192.168.1.58
 
 ---
 spring:
@@ -42,5 +44,3 @@ logging:
     .: ERROR
     org.springframework: INFO
     com.schibsted: INFO
-kafka:
-  bootstrapAddress: 192.168.1.58
