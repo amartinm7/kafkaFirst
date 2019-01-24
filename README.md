@@ -1,15 +1,16 @@
 ![kafka](./_media/kafka-logo.png)
 
-# Kafka Message System PoC
-Apache Kafka is a distributed and fault-tolerant stream processing system.
-![kafka](./_media/kafka-architecture.png)
-
-The PoC or spike is intended to:
+# The Goal
+The PoC/spike is intended to:
 - create a topic
 - create a publisher to send a 'Message'
 - create a subscriber to listen/receive a 'Message'
 
 There are written some tests to probe that everything is working as it must.  
+
+# Kafka Message System PoC
+Apache Kafka is a distributed and fault-tolerant stream processing system.
+![kafka](./_media/kafka-architecture.png)
 
 Kafka Ecosystem:
 - **_brokers_**: actors/agents inside of the message system. Handle the messages in partitions a many other tasks.
@@ -36,8 +37,8 @@ workflow steps:
 - create a consumer and read some messages to the topic using the prompt.
 
 you can host to scale and coordinate the kafka cluster and the zookeeper using kubernates. 
-Lets say that kubernates is like a marathon/mesos tool for docker hosting.
-You have to fill some yml to deploy the docker images there.
+Let's say that kubernates is like a marathon/mesos tool to docker hosting.
+You have to fill some yml files to deploy the docker images there.
 
 ## Spring + Kafka integration
 Everything is integrated out the box. 
