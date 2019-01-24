@@ -1,10 +1,14 @@
 package com.amm.kafkafirst.infrastructure;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Message {
     private int code;
     private String message;
 
-    public Message(int code, String message) {
+    @JsonCreator
+    public Message(@JsonProperty("code") int code, @JsonProperty("message") String message) {
         this.code = code;
         this.message = message;
     }
