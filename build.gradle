@@ -1,6 +1,7 @@
 buildscript {
 	ext {
-		springBootVersion = '2.1.2.RELEASE'
+		kotlin_version = '1.3.50'
+		spring_boot_version = '2.1.2.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -9,21 +10,40 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
+		classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+		classpath 'gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:2.0.0'
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
+plugins {
+	id 'application'
+	id 'idea'
+	id 'org.jetbrains.kotlin.jvm' version '1.3.31'
+	id 'org.jetbrains.kotlin.plugin.spring' version '1.3.31'
+	id 'io.gitlab.arturbosch.detekt' version '1.0.0.RC9.2'
+}
+
+apply from: 'gradle/build-git.gradle'
+apply from: 'gradle/build-integration-test.gradle'
+apply plugin: 'kotlin' // Required for Kotlin integration
+apply plugin: "kotlin-spring" // https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: "jacoco"
+apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 
 group = 'com.amm'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+mainClassName = 'com.amm.kafkafirst.Main'
+
+jar {
+	baseName = 'kafkafirst'
+	version = '0.1.0'
+}
 
 repositories {
 	mavenCentral()
@@ -35,7 +55,8 @@ bootJar {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
+	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.springframework.boot:spring-boot-starter-security'
 	compile 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.apache.kafka:kafka-streams'
@@ -48,7 +69,7 @@ dependencies {
 	compile 'io.springfox:springfox-swagger-ui:2.9.2'
 	testCompile 'org.junit.jupiter:junit-jupiter-api'
 	testCompile 'org.junit.jupiter:junit-jupiter-engine'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 jacocoTestReport {
@@ -77,6 +98,16 @@ tasks.withType(FindBugs) {
 		html.enabled true
 	}
 }
+
+compileKotlin {
+	kotlinOptions.jvmTarget = "1.8"
+}
+
+compileTestKotlin {
+	kotlinOptions.jvmTarget = "1.8"
+}
+
+// check.dependsOn(ktlint)
 
 
 
