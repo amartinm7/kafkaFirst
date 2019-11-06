@@ -22,7 +22,6 @@ plugins {
 	id 'idea'
 	id 'org.jetbrains.kotlin.jvm' version '1.3.31'
 	id 'org.jetbrains.kotlin.plugin.spring' version '1.3.31'
-	id 'io.gitlab.arturbosch.detekt' version '1.0.0.RC9.2'
 }
 
 apply from: 'gradle/build-git.gradle'
@@ -33,7 +32,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
-apply plugin: 'findbugs'
+// apply plugin: 'findbugs'
 
 group = 'com.amm'
 version = '0.0.1-SNAPSHOT'
@@ -83,6 +82,7 @@ jacocoTestReport {
 // to see the test coverage
 build.finalizedBy(jacocoTestReport)
 
+/*
 findbugs {
 	ignoreFailures = false
 	toolVersion = "3.0.1"
@@ -90,7 +90,7 @@ findbugs {
 	// excludeFilter = file("config/findbugs/excludeFilter.xml")
 	reportsDir = file("$project.buildDir/reports/findbugs")
 	effort = "max"
-}
+}*/
 
 tasks.withType(FindBugs) {
 	reports {
