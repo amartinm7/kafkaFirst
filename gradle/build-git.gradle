@@ -1,0 +1,11 @@
+// This condition can be removed you already created a git repository and at least has one commit
+if (new File(".git").exists() && new File(".git/objects").listFiles().length > 2) {
+
+    apply plugin: 'com.gorylenko.gradle-git-properties'
+
+    gitProperties {
+        dateFormat = "yyyy-MM-dd HH:mmZ"
+        dateFormatTimeZone = "GMT"
+    }
+
+}

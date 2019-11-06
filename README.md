@@ -176,3 +176,6 @@ Once you have the dockerized app is really easy bring it to the cloud. You look 
 ```bash
 spring init --build gradle --name=project-name --dependencies=web,data-jpa,mysql,devtools,thymeleaf --package-name=com.amm.artifact projectName
 ```
+
+![Swagger](./_media/icons/swagger.png)
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
