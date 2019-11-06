@@ -1,45 +1,41 @@
-package com.amm.kafkafirst.application;
+package com.amm.kafkafirst.infrastructure.services
 
-import com.amm.kafkafirst.infrastructure.Message;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.lang.NonNull;
-import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+import com.amm.kafkafirst.infrastructure.kafka.Message
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.kafka.core.KafkaTemplate
+import org.springframework.kafka.support.SendResult
+import org.springframework.lang.NonNull
+import org.springframework.stereotype.Service
+import org.springframework.util.concurrent.ListenableFutureCallback
 
 @Service
-public class ProducerService {
+class ProducerService(
+    @param:Autowired private val kafkaTemplate: KafkaTemplate<String, Message>
+) {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProducerService.class);
+    private val logger = LoggerFactory.getLogger(ProducerService::class.java)
 
-    @Value(value = "${kafka.topic.name}")
-    private String topicName;
+    @Value(value = "\${kafka.topic.name}")
+    private val topicName: String? = null
 
-    private final KafkaTemplate<String, Message> kafkaTemplate;
-
-    public ProducerService(
-            @Autowired KafkaTemplate<String, Message> kafkaTemplate){
-        this.kafkaTemplate = kafkaTemplate;
-    }
-
-    public void sendMessage(Message message){
-        ListenableFuture<SendResult<String, Message>> future = kafkaTemplate.send(topicName, message);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Message>>() {
-            @Override
-            public void onSuccess(@NonNull SendResult<String, Message> result) {
-                logger.info("Sent message=[" + message +
-                        "] with offset=[" + result.getRecordMetadata().offset() + "]");
+    fun sendMessage(message: Message) {
+        val future = kafkaTemplate.send(topicName!!, message)
+        future.addCallback(object : ListenableFutureCallback<SendResult<String, Message>> {
+            override fun onSuccess(@NonNull result: SendResult<String, Message>?) {
+                logger.info(
+                    "Sent message=[" + message +
+                        "] with offset=[" + result!!.recordMetadata.offset() + "]"
+                )
             }
-            @Override
-            public void onFailure(Throwable ex) {
-                logger.info("Unable to send message=["
-                        + message + "] due to : " + ex.getMessage());
+
+            override fun onFailure(ex: Throwable) {
+                logger.info(
+                    "Unable to send message=["
+                        + message + "] due to : " + ex.message
+                )
             }
-        });
+        })
     }
 }

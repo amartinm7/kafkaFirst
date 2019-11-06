@@ -1,42 +1,40 @@
-package com.amm.kafkafirst.infrastructure.kafka.producer;
+package com.amm.kafkafirst.infrastructure.kafka.producer
 
-import com.amm.kafkafirst.infrastructure.Message;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.StringSerializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.kafka.core.DefaultKafkaProducerFactory;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.core.ProducerFactory;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
-import org.springframework.kafka.support.serializer.JsonSerializer;
+import com.amm.kafkafirst.infrastructure.kafka.Message
+import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.common.serialization.StringSerializer
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.kafka.core.DefaultKafkaProducerFactory
+import org.springframework.kafka.core.KafkaTemplate
+import org.springframework.kafka.core.ProducerFactory
+import org.springframework.kafka.support.serializer.JsonSerializer
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashMap
 
 @Configuration
-public class KafkaProducerConfig {
+class KafkaProducerConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(KafkaProducerConfig.class);
+    private val logger = LoggerFactory.getLogger(KafkaProducerConfig::class.java)
 
-    @Value(value = "${kafka.bootstrap-servers}")
-    private String bootstrapAddress;
+    @Value(value = "\${kafka.bootstrap-servers}")
+    private lateinit var bootstrapAddress: String
 
     @Bean
-    public ProducerFactory<String, Message> producerFactory(){
-        logger.info(">>>my bootstrapAddress {}", bootstrapAddress);
-        final Map<String, Object> configProps = new HashMap<>();
-        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        return new DefaultKafkaProducerFactory<>(configProps);
+    fun producerFactory(): ProducerFactory<String, Message> {
+        logger.info(">>>my bootstrapAddress {}", bootstrapAddress)
+        val configProps = HashMap<String, Any>()
+        configProps[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = bootstrapAddress
+        configProps[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
+        configProps[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = JsonSerializer::class.java
+        return DefaultKafkaProducerFactory(configProps)
     }
 
     @Bean
-    public KafkaTemplate<String, Message> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+    fun kafkaTemplate(): KafkaTemplate<String, Message> {
+        return KafkaTemplate(producerFactory())
     }
 }

@@ -1,11 +1,10 @@
-package com.amm.kafkafirst.interfaces;
+package com.amm.kafkafirst.infrastructure.interfaces;
 
-import com.amm.kafkafirst.application.ProducerService;
-import com.amm.kafkafirst.infrastructure.Message;
+import com.amm.kafkafirst.infrastructure.services.ProducerService;
+import com.amm.kafkafirst.infrastructure.kafka.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;

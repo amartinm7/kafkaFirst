@@ -1,11 +1,14 @@
-package com.amm.kafkafirst;
+package com.amm.kafkafirst
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import springfox.documentation.swagger2.annotations.EnableSwagger2
 
-@SpringBootApplication
-public class Main {
-    public static void main(String args[]){
-        SpringApplication.run(Main.class,args);
-    }
+@SpringBootApplication(scanBasePackages = ["com.amm.kafkafirst.infrastructure"])
+@EnableSwagger2
+class Application
+
+fun main() {
+    runApplication<Application>()
 }
