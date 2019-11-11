@@ -1,0 +1,562 @@
+{
+  "config": {
+    "entries": [
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "compression.type",
+        "read_only": false,
+        "value": "producer"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "leader.replication.throttled.replicas",
+        "read_only": false,
+        "value": ""
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "message.downconversion.enable",
+        "read_only": false,
+        "value": "true"
+      },
+      {
+        "is_default": false,
+        "is_sensitive": false,
+        "name": "min.insync.replicas",
+        "read_only": false,
+        "value": "2"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "segment.jitter.ms",
+        "read_only": false,
+        "value": "0"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "cleanup.policy",
+        "read_only": false,
+        "value": "delete"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "flush.ms",
+        "read_only": false,
+        "value": "9223372036854775807"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "follower.replication.throttled.replicas",
+        "read_only": false,
+        "value": ""
+      },
+      {
+        "is_default": false,
+        "is_sensitive": false,
+        "name": "segment.bytes",
+        "read_only": false,
+        "value": "1073741824"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "retention.ms",
+        "read_only": false,
+        "value": "604800000"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "flush.messages",
+        "read_only": false,
+        "value": "9223372036854775807"
+      },
+      {
+        "is_default": false,
+        "is_sensitive": false,
+        "name": "message.format.version",
+        "read_only": false,
+        "value": "2.0-IV1"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "file.delete.delay.ms",
+        "read_only": false,
+        "value": "60000"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "max.message.bytes",
+        "read_only": false,
+        "value": "1000012"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "min.compaction.lag.ms",
+        "read_only": false,
+        "value": "0"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "message.timestamp.type",
+        "read_only": false,
+        "value": "CreateTime"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "preallocate",
+        "read_only": false,
+        "value": "false"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "min.cleanable.dirty.ratio",
+        "read_only": false,
+        "value": "0.5"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "index.interval.bytes",
+        "read_only": false,
+        "value": "4096"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "unclean.leader.election.enable",
+        "read_only": false,
+        "value": "false"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "retention.bytes",
+        "read_only": false,
+        "value": "-1"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "delete.retention.ms",
+        "read_only": false,
+        "value": "86400000"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "segment.ms",
+        "read_only": false,
+        "value": "604800000"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "message.timestamp.difference.max.ms",
+        "read_only": false,
+        "value": "9223372036854775807"
+      },
+      {
+        "is_default": true,
+        "is_sensitive": false,
+        "name": "segment.index.bytes",
+        "read_only": false,
+        "value": "10485760"
+      }
+    ],
+    "error_code": 0
+  },
+  "error_code": 0,
+  "is_internal": false,
+  "partitions": [
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 23,
+      "replicas": [
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 17,
+      "replicas": [
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 8,
+      "replicas": [
+        11,
+        10,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 11,
+      "replicas": [
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 20,
+      "replicas": [
+        11,
+        10,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 2,
+      "replicas": [
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 5,
+      "replicas": [
+        11,
+        10,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 11,
+      "partition": 14,
+      "replicas": [
+        11,
+        10,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 13,
+      "replicas": [
+        10,
+        12,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 4,
+      "replicas": [
+        10,
+        12,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 22,
+      "replicas": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 16,
+      "replicas": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 7,
+      "replicas": [
+        10,
+        12,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 10,
+      "replicas": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 1,
+      "replicas": [
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 10,
+      "partition": 19,
+      "replicas": [
+        10,
+        12,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 18,
+      "replicas": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 9,
+      "replicas": [
+        12,
+        10,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 12,
+      "replicas": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 21,
+      "replicas": [
+        12,
+        10,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 3,
+      "replicas": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 15,
+      "replicas": [
+        12,
+        10,
+        11
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 24,
+      "replicas": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 6,
+      "replicas": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "error_code": 0,
+      "isr": [
+        10,
+        12,
+        11
+      ],
+      "leader": 12,
+      "partition": 0,
+      "replicas": [
+        12,
+        10,
+        11
+      ]
+    }
+  ],
+  "topic": "priv.milanuncios.adsignal"
+}

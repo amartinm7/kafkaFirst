@@ -1,0 +1,18 @@
+{
+  "configs": [
+    {
+      "config_key": "min.insync.replicas",
+      "config_value": "2"
+    },
+    {
+      "config_key": "segment.bytes",
+      "config_value": "1073741824"
+    },
+    {
+      "config_key": "message.format.version",
+      "config_value": "2.0-IV1"
+    }
+  ],
+  "num_partitions": "25",
+  "topic": "priv.milanuncios.adsignal.retries"
+}
