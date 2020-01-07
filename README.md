@@ -182,5 +182,10 @@ spring init --build gradle --name=project-name --dependencies=web,data-jpa,mysql
 gradle wrapper
 ```
 
+create folders, gradle config files and so on... choose the 8 and 1 options
+```bash
+./gradlew init
+```
+
 ![Swagger](./_media/icons/swagger.png)
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
